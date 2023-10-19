@@ -20,7 +20,8 @@ class ViewController: UIViewController {
         print("this is sender.tag \(sender.tag)")
         print("this is array winState \(winState)")
         
-        if state[sender.tag - 1] != 0 && counter == 2 {
+        //if state[sender.tag - 1] != 0 && counter == 2 {
+        if state[sender.tag - 1] == 2 || (state[sender.tag - 1] == 1 && counter == 2) {
             return
         }
 
