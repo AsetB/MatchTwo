@@ -41,10 +41,6 @@ class ViewController: UIViewController {
             if state[i] == 1 {
                 countToReset += 1 //подсчет открытых карт
             }
-            if state[i] == 2 {
-                countMatched += 1 // подсчет совпадений
-                print("This is count for matched up \(countMatched)")
-            }
         }
         
         for winArray in winState {
@@ -61,7 +57,9 @@ class ViewController: UIViewController {
             }
         }
         
-        if countMatched == 15 {
+        let matchedPairsCount = winState.filter { state[$0[0] as! Int] == 2 }.count
+
+        if matchedPairsCount == winState.count {
             let alert = UIAlertController(title: "You win!", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{
                 UIAlertAction in
